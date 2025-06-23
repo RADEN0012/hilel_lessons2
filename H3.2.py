@@ -1,10 +1,9 @@
-def move_last_to_first(lst):
-    if len(lst) <= 1:
-        return lst
-    return [lst[-1]] + lst[:-1]
-
-# Приклади для перевірки
-print(move_last_to_first([12, 3, 4, 10]))      # [10, 12, 3, 4]
-print(move_last_to_first([1]))                # [1]
-print(move_last_to_first([]))                 # []
-print(move_last_to_first([12, 3, 4, 10, 8]))   # [8, 12, 3, 4, 10]
+a = [12, 3, 4, 10]
+if len(a) > 1:
+    last = a[-1]
+    i = len(a) - 1
+    while i > 0:
+        a[i] = a[i - 1]
+        i = i - 1
+    a[0] = last
+print([12, 3, 4, 10], "=>", a)
