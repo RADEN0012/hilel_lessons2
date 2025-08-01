@@ -28,3 +28,35 @@ class Counter:
 
     def get_current(self):
         return self.current
+
+
+# ==== Перевірка ====
+counter = Counter()
+
+counter.set_current(7)
+counter.step_up()  # 8
+counter.step_up()  # 9
+counter.step_up()  # 10
+
+assert counter.get_current() == 10, 'Test1'
+
+try:
+    counter.step_up()  # ValueError
+except ValueError as e:
+    print(e)  # Досягнуто максимуму
+
+assert counter.get_current() == 10, 'Test2'
+
+counter.set_min(7)
+counter.step_down()  # 9
+counter.step_down()  # 8
+counter.step_down()  # 7
+
+assert counter.get_current() == 7, 'Test3'
+
+try:
+    counter.step_down()  # ValueError
+except ValueError as e:
+    print(e)  # Досягнуто мінімуму
+
+assert counter.get_current() == 7, 'Test4'
